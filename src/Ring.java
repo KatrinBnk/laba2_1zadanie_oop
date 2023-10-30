@@ -15,14 +15,15 @@ public class Ring extends JPanel {
         System.out.println("\nвызов конструктора 1\n");
         setLayout(null);
         setOpaque(false);
-        if ((x+r) >= 1200) { r = 1200 - x;}
-        if ((y+r) >= 500) { r = 500 - y;}
+        if ((x+r) >= 1100) { r = 1000 - x;}
+        if ((y+r) >= 400) { r = 300 - y;}
         if (r > x) { r = x; }
         if (r >= y) { r = y; }
         One = new Circle(x,y,r, c);
         Two = new Circle(x,y,r*2/3, c);
         D = r*2;
         O.setXY(x,y);
+        this.VISION = true;
         System.out.println("Объект Ring создан");
     }
 
@@ -32,6 +33,7 @@ public class Ring extends JPanel {
         One = new Circle(x,y,r, Color.BLACK);
         Two = new Circle(x,y,r*2/3, Color.BLACK);
         O.setXY(x,y); D=r*2;
+        this.VISION = true;
         System.out.println("Объект Ring создан");
     }
 
@@ -57,7 +59,6 @@ public class Ring extends JPanel {
     public void Show(boolean VISION) {
         this.VISION= VISION;
         setVisible(this.VISION);
-        this.VISION = true;
         this.repaint();
     }
 

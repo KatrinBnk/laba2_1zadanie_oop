@@ -16,7 +16,7 @@ public class Rectangle extends JPanel {
         System.out.println("Начальные ширина/высота: " + w + "; " + h);
         if ((x+w) >= 1000) { w = 1000 - x;}
         if ((y+h) >= 500) { h = 500 - y;}
-        System.out.println("Ширина/высота после проверки на выход за пределы окна программы: " + w + "; " + h);
+        System.out.println("Ширина/высота: " + w + "; " + h);
         O.setXY(x,y);
         this.w = w;
         this.h = h;

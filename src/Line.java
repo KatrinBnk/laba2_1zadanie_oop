@@ -17,7 +17,7 @@ public class Line extends JPanel {
         O1.setXY(x1,y1);
         O2.setXY(x2,y2);
         color = c;
-        System.out.println("Объект линия(Line) создан");
+        System.out.println("Создана линия: (" + x1 + "; " +y1 + "), " + x2 + "; " + y2 + "). " );
     }
 
     public Line (int x1, int y1, int x2, int y2) {
@@ -26,11 +26,12 @@ public class Line extends JPanel {
         O1.setXY(x1,y1);
         O2.setXY(x2,y2);
         color = Color.BLACK;
+        System.out.println("Создана линия: (" + x1 + "; " +y1 + "), " + x2 + "; " + y2 + "). " );
     }
 
     public void MoveTo(int dx, int dy) {
         int newx1 = O1.getX()+dx, newx2 = O2.getX()+dx;
-        int newy1 = O1.getY()+dx, newy2 = O2.getY()+dx;
+        int newy1 = O1.getY()+dy, newy2 = O2.getY()+dy;
         int x1 = O1.getX(), x2 = O2.getX();
         int y1 = O1.getY(), y2 = O2.getY();
         if (newx1 > 0 && newx2 > 0 && newx1 < interfaceWidth && newx2 < interfaceWidth && newy1 > 0 && newy2 > 0 && newy1 < interfaceHeight && newy2 < interfaceHeight) {
@@ -42,14 +43,18 @@ public class Line extends JPanel {
             int deltaX = x2 - x1;
             int deltaY = y2 - y1;
             Random random = new Random();
-            x1 = random.nextInt(interfaceWidth - deltaX);
-            y1 = random.nextInt(interfaceHeight - deltaY);
-            x2 = x1 + deltaX;
-            y2 = y1 + deltaY;
+            do {
+                x1 = random.nextInt(interfaceWidth - deltaX);
+                y1 = random.nextInt(interfaceHeight - deltaY);
+                x2 = x1 + deltaX;
+                y2 = y1 + deltaY;
+                deltaX =  x2 -x1; deltaY = y2 - y1;
+            } while (!(x1 > 0 && x2 > 0 && y1 > 0 && y2 > 0 && x1 <interfaceWidth && x2 < interfaceWidth && y1 < interfaceHeight && y2 < interfaceHeight));
         }
-        System.out.println("Координаты линии: (" + x1 + ", " + y1 + ") - (" + x2 + ", " + y2 + ")");
+
         O1.setXY(x1,y1);
         O2.setXY(x2,y2);
+        System.out.println("Перемещение линии на координаты: (" + x1 + "; " +y1 + "), " + x2 + "; " + y2 + "). " );
     }
 
     public void Show(boolean VISION) {

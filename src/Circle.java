@@ -23,13 +23,15 @@ public class Circle extends JPanel {
         O.setXY(x,y);
         this.D = r*2;
         this.color = color;
+        this.VISION = true;
         System.out.println("Объект Circle создан");
     }
 
     public Circle (int x, int y, int r) {
         setLayout(null);
         setOpaque(false);
-        O.setXY(x,y); D = r*2; color= Color.BLACK;
+        O.setXY(x,y); this.D = r*2; this.color= Color.BLACK;
+        this.VISION = true;
         System.out.println("Объект Circle создан");
     }
 
@@ -56,7 +58,6 @@ public class Circle extends JPanel {
     public void Show(boolean VISION) {
         this.VISION= VISION;
         setVisible(this.VISION);
-        this.VISION = true;
         this.repaint();
     }
 

@@ -298,7 +298,6 @@ public  class Main{
                     JOptionPane.showMessageDialog(fNL, "Массив Треугольников не найден");
                 }
             }
-            cntCircles = cntTriangles = cntRects = cntLines = 10;
         });
 
         //удалить фигуру/ы
@@ -633,12 +632,12 @@ public  class Main{
                 }
             }
             else if (buttonKey == 5) {
-                if (rings != null) {
+                if (ring != null) {
                     visionRing = !visionRing;
                     ((Ring) ring).Show(visionRing);
                     cP.revalidate(); cP.repaint();
                 } else {
-                    JOptionPane.showMessageDialog(fNL, "Прямоугольник не найден");
+                    JOptionPane.showMessageDialog(fNL, "Кольцо не найдено");
                 }
             }
             else if (buttonKey == 15) {
@@ -785,6 +784,7 @@ public  class Main{
 
         }else if(buttonKey == 12){
             if (circles == null) {
+                visionCircle = true;
                 JOptionPane.showMessageDialog(fNL, "Окружности будут созданы по случайным координатам.");
                 cntCircles = Integer.parseInt(JOptionPane.showInputDialog("Сколько окружностей необходимо создать?"));
                 if (cntCircles <= 0){
@@ -826,7 +826,7 @@ public  class Main{
 
         }else if(buttonKey == 15){
             if (rings == null) {
-                JOptionPane.showMessageDialog(fNL, "Окружности будут созданы по случайным координатам.");
+                JOptionPane.showMessageDialog(fNL, "Кольца будут созданы по случайным координатам.");
                 cntRings = Integer.parseInt(JOptionPane.showInputDialog("Сколько колец необходимо создать?"));
                 if (cntRings <= 0){
                     JOptionPane.showMessageDialog(fNL, "Условие нарушено. Будет создано 10 колец.");
